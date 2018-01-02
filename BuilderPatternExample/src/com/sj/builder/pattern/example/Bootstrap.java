@@ -3,11 +3,15 @@
  */
 package com.sj.builder.pattern.example;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author sachinjsunny
  *
  */
 public class Bootstrap {
+	
+	private static final Logger log = Logger.getLogger(Bootstrap.class);
 
 	/**
 	 * @param args
@@ -26,9 +30,9 @@ public class Bootstrap {
 						.employment(EmploymentStatus.EMPLOYED).gender(Gender.MALE).employment(EmploymentStatus.EMPLOYED)
 						.homeOwner(HomeownerStatus.HOME_OWNER).createPerson();
 
-		System.out.println(person1);
+		log.info(person1);
 
-		System.out.println(person2);
+		log.info(person2);
 	}
 
 }
