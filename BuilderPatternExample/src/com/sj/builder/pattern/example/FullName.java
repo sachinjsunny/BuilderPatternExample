@@ -35,12 +35,7 @@ public final class FullName {
 	public Suffix getSuffix() {
 		return this.suffix;
 	}
-
-	@Override
-	public String toString() {
-		return this.salutation + " " + this.firstName + " " + this.middleName + this.lastName + ", " + this.suffix;
-	}
-
+	
 	public static class FullNameBuilder {
 		private final Name nestedLastName;
 		private final Name nestedFirstName;
@@ -71,5 +66,28 @@ public final class FullName {
 		public FullName createFullName() {
 			return new FullName(nestedLastName, nestedFirstName, nestedMiddleName, nestedSalutation, nestedSuffix);
 		}
+	}
+
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("FullName [");
+		if (lastName != null)
+			builder.append("lastName=").append(lastName).append(", ");
+		if (firstName != null)
+			builder.append("firstName=").append(firstName).append(", ");
+		if (middleName != null)
+			builder.append("middleName=").append(middleName).append(", ");
+		if (salutation != null)
+			builder.append("salutation=").append(salutation).append(", ");
+		if (suffix != null)
+			builder.append("suffix=").append(suffix);
+		builder.append("]");
+		return builder.toString();
 	}
 }

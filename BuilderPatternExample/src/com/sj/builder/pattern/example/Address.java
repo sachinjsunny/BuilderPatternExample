@@ -23,11 +23,6 @@ public final class Address {
 		return this.state;
 	}
 
-	@Override
-	public String toString() {
-		return this.streetAddress + ", " + this.city + ", " + this.state;
-	}
-
 	public static class AddressBuilder {
 		private StreetAddress nestedStreetAddress;
 		private final City nestedCity;
@@ -46,5 +41,22 @@ public final class Address {
 		public Address createAddress() {
 			return new Address(nestedStreetAddress, nestedCity, nestedState);
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Address [");
+		if (streetAddress != null)
+			builder.append("streetAddress=").append(streetAddress).append(", ");
+		if (city != null)
+			builder.append("city=").append(city).append(", ");
+		if (state != null)
+			builder.append("state=").append(state);
+		builder.append("]");
+		return builder.toString();
 	}
 }
